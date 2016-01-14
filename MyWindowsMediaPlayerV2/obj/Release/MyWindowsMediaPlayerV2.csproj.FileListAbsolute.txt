@@ -1,0 +1,16 @@
+C:\Users\decom\Desktop\MyWindowsMediaPlayerV2\MyWindowsMediaPlayerV2\bin\Release\MyWindowsMediaPlayerV2.exe
+C:\Users\decom\Desktop\MyWindowsMediaPlayerV2\MyWindowsMediaPlayerV2\bin\Release\MyWindowsMediaPlayerV2.pdb
+C:\Users\decom\Desktop\MyWindowsMediaPlayerV2\MyWindowsMediaPlayerV2\bin\Release\policy.2.0.taglib-sharp.dll
+C:\Users\decom\Desktop\MyWindowsMediaPlayerV2\MyWindowsMediaPlayerV2\bin\Release\taglib-sharp.dll
+C:\Users\decom\Desktop\MyWindowsMediaPlayerV2\MyWindowsMediaPlayerV2\bin\Release\policy.2.0.taglib-sharp.config
+C:\Users\decom\Desktop\MyWindowsMediaPlayerV2\MyWindowsMediaPlayerV2\obj\Release\View\MainWindow.g.cs
+C:\Users\decom\Desktop\MyWindowsMediaPlayerV2\MyWindowsMediaPlayerV2\obj\Release\App.g.cs
+C:\Users\decom\Desktop\MyWindowsMediaPlayerV2\MyWindowsMediaPlayerV2\obj\Release\MyWindowsMediaPlayerV2_Content.g.cs
+C:\Users\decom\Desktop\MyWindowsMediaPlayerV2\MyWindowsMediaPlayerV2\obj\Release\MyWindowsMediaPlayerV2_MarkupCompile.cache
+C:\Users\decom\Desktop\MyWindowsMediaPlayerV2\MyWindowsMediaPlayerV2\obj\Release\MyWindowsMediaPlayerV2_MarkupCompile.lref
+C:\Users\decom\Desktop\MyWindowsMediaPlayerV2\MyWindowsMediaPlayerV2\obj\Release\View\MainWindow.baml
+C:\Users\decom\Desktop\MyWindowsMediaPlayerV2\MyWindowsMediaPlayerV2\obj\Release\MyWindowsMediaPlayerV2.g.resources
+C:\Users\decom\Desktop\MyWindowsMediaPlayerV2\MyWindowsMediaPlayerV2\obj\Release\MyWindowsMediaPlayerV2.Properties.Resources.resources
+C:\Users\decom\Desktop\MyWindowsMediaPlayerV2\MyWindowsMediaPlayerV2\obj\Release\MyWindowsMediaPlayerV2.csproj.GenerateResource.Cache
+C:\Users\decom\Desktop\MyWindowsMediaPlayerV2\MyWindowsMediaPlayerV2\obj\Release\MyWindowsMediaPlayerV2.exe
+C:\Users\decom\Desktop\MyWindowsMediaPlayerV2\MyWindowsMediaPlayerV2\obj\Release\MyWindowsMediaPlayerV2.pdb

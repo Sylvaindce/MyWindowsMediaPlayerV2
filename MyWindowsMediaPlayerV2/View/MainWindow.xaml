@@ -1,0 +1,81 @@
+﻿<Window x:Class="MyWindowsMediaPlayerV2.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:MyWindowsMediaPlayerV2"
+        mc:Ignorable="d"
+        Title="MyWindowsMediaPlayerV2" Height="525" Width="725"
+        MinHeight="525" MinWidth="725">
+    <Window.CommandBindings>
+        <CommandBinding Command="MediaCommands.Play" CanExecute="playpause_CanExecute" Executed="playpause_Click"/>
+        <CommandBinding Command="MediaCommands.Stop" CanExecute="stop_CanExecute" Executed="stop_Click"/>
+        <CommandBinding Command="MediaCommands.NextTrack" CanExecute="next_CanExecute" Executed="next_Click"/>
+        <CommandBinding Command="MediaCommands.PreviousTrack" CanExecute="previous_CanExecute" Executed="previous_Click"/>
+        <CommandBinding Command="ApplicationCommands.Open" CanExecute="open_CanExecute" Executed="open_Click"/>
+        <CommandBinding Command="ApplicationCommands.Delete" CanExecute="del_CanExecute"  Executed="del_Playlist"/>
+        <CommandBinding Command="ApplicationCommands.Close" Executed="MenuItemExit_Click"/>
+    </Window.CommandBindings>
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="5" />
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+        <DockPanel Background="#107c0f" Height="40" LastChildFill="False" VerticalAlignment="Top" Margin="0,0,4.6,0" Grid.ColumnSpan="2">
+            <Button x:Name="playlist" FontWeight="Bold" Background="#107c0f" Foreground="White" Content="Playlist" Height="40" VerticalAlignment="Top" Width="60" BorderBrush="{x:Null}" Click="playlist_Choice"/>
+            <Button x:Name="library" Background="#107c0f" Foreground="White" Content="Library" Height="40" VerticalAlignment="Top" Width="60" BorderBrush="{x:Null}" Click="lib_Choice"/>
+            <TextBox x:Name="textBox" TextWrapping="Wrap" Margin="0,22,0,0" Width="72" DockPanel.Dock="Right" HorizontalAlignment="Right" TextChanged="textBox_TextChanged"/>
+            <TextBlock x:Name="textBlock" Height="18" Margin="0,22,0,0" TextWrapping="Wrap" Text="Filtre: " Foreground="White" VerticalAlignment="Top" Width="31" DockPanel.Dock="Right" />
+        </DockPanel>
+        <GridSplitter Background="#107c0f" Grid.Column="1" Width="5" x:Name="gridSplitter" HorizontalAlignment="Stretch"/>
+        <Border Grid.Column="2" Margin="0,0,0,125.2">
+            <Border.Background>
+                <ImageBrush ImageSource="/Img/media.png" Stretch="UniformToFill"/>
+            </Border.Background>
+            <MediaElement x:Name="mediaElement" LoadedBehavior="Manual" MediaOpened="mediaElement_MediaOpened" Margin="0,0,0,0"/>
+        </Border>
+        <StackPanel Grid.Column="2" Orientation="Vertical" Margin="0.4,0,0.4,0.2" Height="120" VerticalAlignment="Bottom">
+            <!--Rectangle Fill="#FFF4F4F5" Height="15" Stroke="Black" Margin="0,0,0.4,0"/-->
+            <StackPanel Height="40" Orientation="Horizontal" VerticalAlignment="Center" Margin="9,0">
+                <Slider x:Name="slider" ValueChanged="slider_ValueChanged" Height="24" Width="288" Margin="0,8" />
+                <TextBlock x:Name="time" TextWrapping="Wrap" Text="00:00:00" Width="51" Margin="0,12"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" Height="80" Margin="31,0,32,0">
+                <!--Rectangle Width="190" Margin="0,0,0,-0.2"/-->
+                <Button x:Name="previous" Width="50" Height="50" Foreground="{x:Null}" BorderBrush="{x:Null}" Margin="0,17,0,17.8" Command="MediaCommands.PreviousTrack">
+                    <Image Source="/Img/previous.png" Stretch="UniformToFill"/>
+                </Button>
+                <Button x:Name="stop" Command="MediaCommands.Stop" Width="50" Height="50" Foreground="{x:Null}" BorderBrush="{x:Null}" Margin="0,17,0,17.8" >
+                    <Image Source="/Img/stop.png" Stretch="UniformToFill"/>
+                </Button>
+                <Button x:Name="playPause" Width="50" Height="50" Foreground="{x:Null}" BorderBrush="{x:Null}" Margin="0,17,0,17.8" Command="MediaCommands.Play">
+                    <Image Source="/Img/playpause.png" Stretch="UniformToFill"/>
+                </Button>
+                <Button x:Name="next" Width="50" Height="50" Foreground="{x:Null}" BorderBrush="{x:Null}" Margin="0,17,0,17.8" Command="MediaCommands.NextTrack">
+                    <Image Source="/Img/next.png" Stretch="UniformToFill"/>
+                </Button>
+                <TextBlock Text="Volume" TextAlignment="Center" VerticalAlignment="Center" Margin="0,34,0,34.8" Width="70"/>
+                <Slider x:Name="volume_Slider" Orientation="Vertical" Width="25" Margin="0,0,0,0" Minimum="0" Maximum="1" Value="{Binding Volume, ElementName=mediaElement}" ValueChanged="volume_Slider_ValueChanged" Foreground="{x:Null}" Background="{x:Null}" BorderBrush="{x:Null}">
+                </Slider>
+            </StackPanel>
+        </StackPanel>
+        <ListView x:Name="listView" Margin="0,40,4.6,61.2" Grid.ColumnSpan="2" SelectionChanged="listView_SelectionChanged" GridViewColumnHeader.Click="header_Click">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn Header="Title" Width="100" DisplayMemberBinding="{Binding title}"/>
+                    <GridViewColumn Header="Artist" Width="100" DisplayMemberBinding="{Binding artist[0]}"/>
+                    <GridViewColumn Header="Album" Width="100" DisplayMemberBinding="{Binding album}" />
+                </GridView>
+            </ListView.View>
+        </ListView>
+        <DockPanel LastChildFill="False" Margin="0,0,22.8,10.2" VerticalAlignment="Bottom" HorizontalAlignment="Right" Width="80">
+            <Button x:Name="addMedia" Height="40" VerticalAlignment="Top" Width="40" BorderBrush="{x:Null}" Foreground="{x:Null}" Command="ApplicationCommands.Open">
+                <Image Source="/Img/plus.png" Stretch="UniformToFill"/>
+            </Button>
+            <Button x:Name="delMedia" Height="40" VerticalAlignment="Top" Width="40" BorderBrush="{x:Null}" Foreground="{x:Null}" Command="ApplicationCommands.Delete">
+                <Image Source="/Img/minus.png" Stretch="UniformToFill"/>
+            </Button>
+        </DockPanel>
+    </Grid>
+</Window>
